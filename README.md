@@ -34,7 +34,7 @@ transactions. As a BI & Data Visualization Specialist, in the BI & Data Analytic
 ### Data Cleaning: 
 *We have a dataset of 50 distinct Clients across 5 industries, with 990 distinct end users, these users completed 5000 distinct transactions within 3 years between 22/11/2020 and 23/11/2024, indicating that some end users have initiated multiple transactions from 10,000 interactions.*
 
-NOTE: Our dataset is well-organized and clean, with accurate data types throughout the four tables, as I  utilized dbo while importing data from the flat file through the import wizard while exploring, I noticed we have a few transactions and interactions that have transaction_date and interaction_date In the year 2020 and we don't have any client data that was onboarded in 2020.
+NOTE: Our dataset is well-organized and clean, with accurate data types throughout the four tables. As I utilized dbo while importing data from the flat file through the import wizard while exploring, I noticed we have a few transactions and interactions with transaction_date and interaction_date in the year 2020, and we don't have any client data that was onboarded in 2020.
 I decided to delete data points from the Transactions and Interactions table that were from 2020, so we can have accurate analysis, as we've money calculations involved in our analysis as well as give our clients accurate timely insights.
 
 *Before deleting rows from Transactions and Interactions I created a backup of my table to avoid any data loss.*
@@ -169,11 +169,25 @@ WITH EndUser_TransactionRaking AS (
     Furthermore, I leveraged Power BI's AI features, which include self-updating Smart Narratives to summarize key insights and forecasting models to predict trends, aiding 
     in proactive decision-making and strategic planning.
     
--_**Dashboard Page Layout:**_
+- _**Dashboard Page Layout:**_
+
 - Overview Page
+  
+  <img width="680" alt="Overview Page" src="https://github.com/user-attachments/assets/0f08e0a8-9c50-40a0-b439-6b37fcb17c53" />
+
 - Interaction Page
+  
+  <img width="678" alt="Interaction Page" src="https://github.com/user-attachments/assets/23a51685-40ac-4ae8-a62d-1befe81a9c12" />
+
 - Transaction Page
+  
+  <img width="663" alt="Transaction Page" src="https://github.com/user-attachments/assets/2eb3f58f-3e83-443c-9a6e-71e1387d4ae8" />
+
 - End User's Page
+  
+  <img width="575" alt="End Users Page" src="https://github.com/user-attachments/assets/5f4cb190-bd70-41d2-8158-773fc607805b" />
+
+You can interact with the dashboard [here](https://app.powerbi.com/view?r=eyJrIjoiMTI0NTNkZTQtZTRjNi00MWJlLTk4ZDctOTk3NGY5ZjY0MmVkIiwidCI6ImIxNjIzYzU5LWJjYmQtNGU1YS1iNTY3LTBkZjI0NGI5ODU0MyJ9)
 
 ### Insights Deep-Dive:
 - Three of the top five Clients were Outbound message directions
