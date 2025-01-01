@@ -172,7 +172,14 @@ WITH EndUser_TransactionRaking AS (
 - _**Power BI Data Source and Modelling:**_
     The SQL database was connected to Power BI as my data source, and data from the SQL data dump database was imported into Power Query. I also imported the internal company managers' data file into Power BI, also updated our clients' access database in the Microsoft 365 account to make hierarchical row-level security easy.
   
-  
+- *Data Model*
+
+  <img width="585" alt="Data_Model" src="https://github.com/user-attachments/assets/255a094c-c767-4075-8e55-06882f8b7208" />
+
+- *Hierarchical row-level security build-up*
+
+  <img width="739" alt="Hierachical row low security build up" src="https://github.com/user-attachments/assets/6e98869a-eecf-4a08-aff5-cd91792ed6b7" />
+
 - _**Dashboard Page Layout:**_
 - Overview Page
   
