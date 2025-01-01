@@ -1,4 +1,18 @@
 # Chat-Commerce-Dashboard
+## Table of Contents
+- [Overview](#overview)
+  - [Goals](#goals)
+- [Problem Statement](#problem-statement)
+  - [SQL Problem Statement](#sql-problem-statement)
+  - [Power BI Problem Statement](#power-bi-problem-statement)
+- [Data Structure](#data-structure)
+- [Data Cleaning](#data-cleaning)
+- [Answering business questions with SQL queries](#answering-business-questions-with-sql-queries)
+- [Power BI dashboard design](#power-bi-dashboard-design)
+  - [Thought process and design thinking](#thought-process-and-design-thinking)
+  - [Power BI Data Source and Modelling](#power-bi-data-source-and-modelling)
+  - [Dashboard Page Layout](#dashboard-page-layout)
+- [Insights Deep Dive](#insights-deep-dive)
 
 ## Overview 
 Clickatell empowers businesses to connect with their customers via SMS, WhatsApp, and other channels, enabling seamless communication, engagement, and
@@ -153,7 +167,7 @@ WITH EndUser_TransactionRaking AS (
 
 ### Power BI dashboard design:
 
-- _**Thought process and design thinking:**_
+- #### _Thought process and design thinking:_
   - With the variety of data I have from interaction, transaction, clients, and end-user information, I recognized the need for different pages to visualize
     important KPIs and provide further insights through appropriate charts, I decided to create a four-page dashboard going to be used internally, and 3 of those pages — 
     interaction, transaction, and end-user pages are also accessible to our clients through page-level security.
@@ -169,7 +183,7 @@ WITH EndUser_TransactionRaking AS (
     Furthermore, I leveraged Power BI's AI features, which include self-updating Smart Narratives to summarize key insights and forecasting models to predict trends, aiding 
     in proactive decision-making and strategic planning.
     
-- _**Power BI Data Source and Modelling:**_
+- #### _Power BI Data Source and Modelling:_
     The SQL database was connected to Power BI as my data source, and data from the SQL data dump database was imported into Power Query. I also imported the internal company managers' data file into Power BI, also updated our clients' access database in the Microsoft 365 account to make hierarchical row-level security easy.
   
 - *Data Model*
@@ -180,7 +194,7 @@ WITH EndUser_TransactionRaking AS (
 
   <img width="739" alt="Hierachical row low security build up" src="https://github.com/user-attachments/assets/6e98869a-eecf-4a08-aff5-cd91792ed6b7" />
 
-- _**Dashboard Page Layout:**_
+- #### _Dashboard Page Layout:_
 - Overview Page
   
   <img width="680" alt="Overview Page" src="https://github.com/user-attachments/assets/0f08e0a8-9c50-40a0-b439-6b37fcb17c53" />
