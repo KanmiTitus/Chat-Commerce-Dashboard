@@ -155,7 +155,7 @@ WITH EndUser_TransactionRaking AS (
 
 - _**Thought process and design thinking:**_
   - With the variety of data I have from interaction, transaction, clients, and end-user information, I recognized the need for different pages to visualize
-    important KPIs and provide further insights through appropriate charts,  I decided to create a four-page dashboard going to be used internally, and 3 of those pages — 
+    important KPIs and provide further insights through appropriate charts, I decided to create a four-page dashboard going to be used internally, and 3 of those pages — 
     interaction, transaction, and end-user pages are also accessible to our clients through page-level security.
    
     We have clients in banking, telecoms, retail, healthcare, and e-commerce. I understand that different days of the week and times of the day will mean different things 
@@ -169,8 +169,11 @@ WITH EndUser_TransactionRaking AS (
     Furthermore, I leveraged Power BI's AI features, which include self-updating Smart Narratives to summarize key insights and forecasting models to predict trends, aiding 
     in proactive decision-making and strategic planning.
     
+- _**Power BI Data Source and Modelling:**_
+    The SQL database was connected to Power BI as my data source, and data from the SQL data dump database was imported into Power Query. I also imported the internal company managers' data file into Power BI, also updated our clients' access database in the Microsoft 365 account to make hierarchical row-level security easy.
+  
+  
 - _**Dashboard Page Layout:**_
-
 - Overview Page
   
   <img width="680" alt="Overview Page" src="https://github.com/user-attachments/assets/0f08e0a8-9c50-40a0-b439-6b37fcb17c53" />
