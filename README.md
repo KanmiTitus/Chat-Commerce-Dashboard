@@ -1,30 +1,26 @@
 # Chat-Commerce-Dashboard
 
-# Overview 
-
+## Overview 
 Clickatell empowers businesses to connect with their customers via SMS, WhatsApp, and other channels, enabling seamless communication, engagement, and
 transactions. As a BI & Data Visualization Specialist, in the BI & Data Analytics team, I was tasked to perform an end-end analysis, provided with a flat file to be loaded into My SQL Server database, submit a .SQL data dump of the dataset, write SQL query that answers business questions to provide insights into client engagement, our clients end users demographic, end user activity ranking, transaction analysis and interaction success rate. Lastly, develop dashboards that drive actionable insights for our clients.
 
-This dashboard is a comprehensive BI solution designed to deliver real-time insights into inbound and outbound interactions between our clients and their end users. It integrates data on transactions conducted through these interactions and visualizes the distribution of clients and end users across regions and industries.
+## Goals
+- Build a comprehensive BI solution designed to deliver real-time insights into inbound and outbound interactions between our clients and their end users. It integrates 
+  data on transactions conducted through these interactions and visualizes the distribution of clients and end users across regions and industries.
 
-The dashboard empowers stakeholders and our clients to make informed decisions from insights derived from tracking chat or interaction success and failure rates about successful, pending, and failed transactions, and understand our client based on resource allocation for marketing and commercial spending. It aims to optimize acquisition costs and identify areas for improvement to enhance client satisfaction and improve customer retention rates.
+- The dashboard empowers stakeholders and our clients to make informed decisions from insights derived from tracking chat or interaction success and failure rates about 
+  successful, pending, and failed transactions, and understand our client based on resource allocation for marketing and commercial spending. It aims to optimize 
+  acquisition costs and identify areas for improvement to enhance client satisfaction and improve customer retention rates.
 
 ## Problem Statement
 ###  SQL Problem Statement
-- Client Engagement Analysis:
-  - Write a query to list the top 5 clients with the highest number of interactions (messages) in the last 2 years. Include their client ID, client name, message direction, 
-    and the total number of interactions.
-- User Demographics and Engagement
-  - Find the average user engagement score for each region and gender, considering only users aged 25-40.
-- Transaction Analysis
-  - Write a query to calculate the total transaction amount for each client in the past year. Display the client ID, client name, and total transaction amount (successful 
-    transactions only).
-- Interaction Success Rate
-  - Determine the success rate of interactions (percentage of "Delivered" messages) for each communication channel.
-- End User Activity Ranking
-  - Rank the end users by their total number of transactions in each region. Display the user ID, region, total transactions, and rank, showing only the top 3 users per 
-    region.
-
+- List our top 5 clients with the highest number of interactions (messages) in the last 2 years. Include their client ID, client name, message direction, and the total 
+  number of interactions.
+- What are the average user engagement scores for each region and gender, considering only users aged 25-40?
+- What's the total successful transaction amount for each client in the past year? 
+- Determine the success rate of interactions (percentage of "Delivered" messages) for each communication channel.
+- Who are the top 3 end users per region? by their total number of transactions in each region?
+ 
 ### Power BI Problem statement 
 - Develop an Insightful Dashboard
   - Use the dataset to build an interactive Power BI dashboard that highlights trends, patterns, and actionable insights.
@@ -41,7 +37,7 @@ The dashboard empowers stakeholders and our clients to make informed decisions f
 NOTE: Our dataset is well-organized and clean, with accurate data types throughout the four tables, as I  utilized dbo while importing data from the flat file through the import wizard while exploring, I noticed we have a few transactions and interactions that have transaction_date and interaction_date In the year 2020 and we don't have any client data that was onboarded in 2020.
 I decided to delete data points from the Transactions and Interactions table that were from 2020, so we can have accurate analysis, as we've money calculations involved in our analysis as well as give our clients accurate timely insights.
 
-Before deleting rows from Transactions and Interactions I created a backup of my table to avoid any data loss.
+*Before deleting rows from Transactions and Interactions I created a backup of my table to avoid any data loss.*
    ```SQL
    SELECT * INTO Backup_Interactions_Table
    FROM Interactions;
@@ -49,8 +45,7 @@ Before deleting rows from Transactions and Interactions I created a backup of my
    SELECT * INTO Backup_Transactions_Table
    FROM Transactions; 
    ```
-
- Previewing the data to be DELETED, 273 and 150 data points were deleted from the Interactions and Transactions table respectively.
+ *Previewing the data to be DELETED, 273 and 150 data points were deleted from the Interactions and Transactions table respectively.*
  
    ```SQL
    SELECT COUNT(*) 
@@ -68,9 +63,9 @@ Before deleting rows from Transactions and Interactions I created a backup of my
    WHERE YEAR(transaction_date) = 2020;
    ```
    ### Answering business questions with SQL queries
-   
-   List our top 5 clients with the highest number of interactions (messages) in the last 2 years. Include their client ID, client name, message direction, and the total 
-   number of interactions.
+   - *Client engagement insights:* 
+     - List our top 5 clients with the highest number of interactions (messages) in the last 2 years. Include their client ID, client name, message direction, and the 
+        total number of interactions.
    
    ```SQL 
    SELECT TOP 5
@@ -85,7 +80,9 @@ Before deleting rows from Transactions and Interactions I created a backup of my
  GROUP BY C.client_id, client_name, message_direction
  ORDER BY Total_Interactions DESC;
 ```
-
+- *User demographic and engagement insights:* 
+   - What are the average user engagement scores for each region and gender, considering only users aged 25-40?
+   
 ```SQL
  SELECT 
        region AS Region,
@@ -98,7 +95,9 @@ Before deleting rows from Transactions and Interactions I created a backup of my
  ORDER BY Avg_User_Engagement_Score DESC;
 ```
 
-/* Transaction Analysis;
+- *Transaction Insights:*
+   - What's the total transaction successful transaction amount for each client in the past year? 
+  
 ```SQL
  SELECT 
        E.client_id AS Client_ID,
@@ -114,7 +113,9 @@ Before deleting rows from Transactions and Interactions I created a backup of my
  ORDER BY Total_TransactionAmount DESC;
 ```
 
-/* Interaction Success Rate
+- *Interaction Success Rate insights:*
+   - Determine the success rate of interactions (percentage of "Delivered" messages) for each communication channel.
+
 ```SQL
  SELECT 
        channel AS Communication_Channels,
@@ -125,8 +126,8 @@ Before deleting rows from Transactions and Interactions I created a backup of my
  ORDER BY SuccessRate_Percentage DESC;
 ```
 
-
-- End User Activity Ranking
+- *End User Activity Ranking insights:*
+   - Who are the top 3 end users per region? by their total number of transactions in each region?
 
 ```SQL
 WITH EndUser_TransactionRaking AS (
@@ -140,7 +141,6 @@ WITH EndUser_TransactionRaking AS (
   JOIN [Clients ] C ON  C.client_id = E.client_id
   GROUP BY T.end_user_id, region
            ) 
-
   SELECT 
         User_Id,
 		Region,
@@ -151,25 +151,38 @@ WITH EndUser_TransactionRaking AS (
   ORDER BY Region, Users_Ranking;
 ```
 
-### Dashboard key Features:
-    - Thought process and design thinking:
-    
-~ A hierarchical row-level security model ensures tailored access, granting managers country-level visibility while providing regional managers with oversight across their assigned regions and client's page-level access.
-~ Utilize an app-like design for seamless navigation, enabling users to easily switch between pages and focus on specific insights.
-~ Leveraging Power BI's AI features include self-updating Smart Narratives to summarize key insights and ~ Forecasting Models to predict trends, aiding in proactive decision-making and strategic planning.
+### Power BI dashboard design:
 
-### Skills Demonstrated building the dashboard
-- App-like design for easy navigation, putting forward what people are already used to with the buzz of Apps on everyone's phone.
-- Data Modelling
-- DAX, write advance queries
-- Bookmarking, Page Navigation, Menu buttons, Filters, Tooltips.
-- New Card Visual for KPIs tracking and comparisons
+- _**Thought process and design thinking:**_
+  - With the variety of data I have from interaction, transaction, clients, and end-user information, I recognized the need for different pages to visualize
+    important KPIs and provide further insights through appropriate charts,  I decided to create a four-page dashboard going to be used internally, and 3 of those pages — 
+    interaction, transaction, and end-user pages are also accessible to our clients through page-level security.
+   
+    We have clients in banking, telecoms, retail, healthcare, and e-commerce. I understand that different days of the week and times of the day will mean different things 
+    to our clients in these industries. To accommodate these, I categorized transactions and interactions into times of day like "Morning" and "Afternoon." Additionally, I 
+    wrote advanced DAX queries to track KPIs over the last seven thirty and ninety days.
+
+    A hierarchical row-level security model ensures tailored access: managers can view country-level data, while regional managers have oversight across their assigned 
+    regions and can access client-specific pages.
+    I implemented an app-like design for seamless navigation, allowing users to easily switch between pages and focus on specific insights. This includes features such as 
+    bookmarking, page navigation, menu buttons, filters, and tooltips, as well as new card visuals for tracking and comparing KPIs.
+    Furthermore, I leveraged Power BI's AI features, which include self-updating Smart Narratives to summarize key insights and forecasting models to predict trends, aiding 
+    in proactive decision-making and strategic planning.
+    
+-_**Dashboard Page Layout:**_
+- Overview Page
+- Interaction Page
+- Transaction Page
+- End User's Page
 
 ### Insights Deep-Dive:
 - Three of the top five Clients were Outbound message directions
-- The data shows that females in Europe have the highest user engagement scores, while males in South America and females in North America exhibit the lowest average user engagement scores.
-- Wade, Bentley and Patton is the top-performing clients, achieving the highest total value of successful transactions at $4,372.95. In contrast, Alvarado LLC is the least-performing client, with a total of $564.46 in transactions over the past year. 
-- SMS emerges as the top-performing communication channel, achieving a 34% interaction success rate, while Apple Messages ranks as the least effective channel, with a 32% success rate. This high-level overview provides a general understanding,but further analysis of customer behavior data is necessary to investigate the reasons behind the below-average success rates we are observing. 
-- The Asia region had the lowest performance, with its top three individual end-user transactions each totaling under $3,000. In contrast, two of Europe and Africa's top three transactions exceeded $3,000, and Africa had the end user with the highest transaction total.
-
-  
+- The data shows that females in Europe have the highest user engagement scores, while males in South America and females in North America exhibit the lowest average user 
+   engagement scores.
+- Wade, Bentley, and Patton are the top-performing clients, achieving the highest total value of successful transactions at $4,372.95. In contrast, Alvarado LLC is the 
+  least-performing client, with a total of $564.46 in transactions over the past year. 
+- SMS emerges as the top-performing communication channel, achieving a 34% interaction success rate, while Apple Messages ranks as the least effective channel, with a 32% 
+  success rate. This high-level overview provides a general understanding, but further analysis of customer behavior data is necessary to investigate the reasons behind the 
+  below-average success rates we are observing. 
+- The Asia region had the lowest performance, with its top three individual end-user transactions each totaling under $3,000. In contrast, two of Europe and Africa's top 
+  three transactions exceeded $3,000, and Africa had the end user with the highest transaction total.
