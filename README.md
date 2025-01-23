@@ -215,19 +215,20 @@ PATHCONTAINS(
 - #### _Dashboard Page Layout:_
 - Overview Page
   
-  <img width="680" alt="Overview Page" src="https://github.com/user-attachments/assets/0f08e0a8-9c50-40a0-b439-6b37fcb17c53" />
+   ![__Overview Page](https://github.com/user-attachments/assets/5e828a1f-b5fb-4abe-ad94-a3b8d5ae1ba9)
 
 - Interaction Page
   
-  <img width="678" alt="Interaction Page" src="https://github.com/user-attachments/assets/23a51685-40ac-4ae8-a62d-1befe81a9c12" />
+   ![__Interaction Page](https://github.com/user-attachments/assets/9fbb9a0b-31e9-47bf-a285-25c21c056255)
 
 - Transaction Page
   
-  <img width="663" alt="Transaction Page" src="https://github.com/user-attachments/assets/2eb3f58f-3e83-443c-9a6e-71e1387d4ae8" />
+  ![__Transaction Page](https://github.com/user-attachments/assets/d85f1f04-da6a-4bc8-abfa-490306ede3de)
+  
 
 - End User's Page
   
-  <img width="575" alt="End Users Page" src="https://github.com/user-attachments/assets/5f4cb190-bd70-41d2-8158-773fc607805b" />
+  ![__EndUsers Page](https://github.com/user-attachments/assets/8ae0a8ed-c06a-4320-a793-2bc7871b6548)
 
 You can interact with the dashboard [here](https://app.powerbi.com/view?r=eyJrIjoiMTI0NTNkZTQtZTRjNi00MWJlLTk4ZDctOTk3NGY5ZjY0MmVkIiwidCI6ImIxNjIzYzU5LWJjYmQtNGU1YS1iNTY3LTBkZjI0NGI5ODU0MyJ9)
 
