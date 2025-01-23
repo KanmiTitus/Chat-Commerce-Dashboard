@@ -194,6 +194,24 @@ WITH EndUser_TransactionRaking AS (
 
   <img width="739" alt="Hierachical row low security build up" src="https://github.com/user-attachments/assets/6e98869a-eecf-4a08-aff5-cd91792ed6b7" />
 
+  - *Login User Dax query measure*
+  ```SQL
+  Login User =                                                              
+           LOOKUPVALUE(RegionalManagerdb[ID],     
+           RegionalManagerdb[Email],
+           USERPRINCIPALNAME()
+        )
+  ```
+- *Hierarchical row-level security dax measure*
+```SQL
+PATHCONTAINS(
+    RegionalManagerdb[Access Path],
+    LOOKUPVALUE(RegionalManagerdb[ID],
+    RegionalManagerdb[Email], 
+    USERPRINCIPALNAME())
+)
+ ```
+
 - #### _Dashboard Page Layout:_
 - Overview Page
   
