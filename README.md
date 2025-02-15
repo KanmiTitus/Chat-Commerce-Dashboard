@@ -1,4 +1,4 @@
-# Chat-Commerce-Dashboard
+# Chat-commerce business performance analysis and dashboard
 ## Table of Contents
 - [Overview](#overview)
   - [Goals](#goals)
@@ -19,12 +19,16 @@ Clickatell empowers businesses to connect with their customers via SMS, WhatsApp
 transactions. As a BI & Data Visualization Specialist, in the BI & Data Analytics team, I was tasked to perform an end-end analysis, provided with a flat file to be loaded into My SQL Server database, submit a .SQL data dump of the dataset, write SQL query that answers business questions to provide insights into client engagement, our clients end users demographic, end user activity ranking, transaction analysis and interaction success rate. Lastly, develop dashboards that drive actionable insights for our clients.
 
 ## Goals
-- Build a comprehensive BI solution designed to deliver real-time insights into inbound and outbound interactions between our clients and their end users. It integrates 
+
+- Provide insights into top-performing clients in terms of interactions, client engagement, end-user demographics, activity ranking, transaction analysis, and interaction success rates. 
+  Reports and actionable recommendations were delivered to guide stakeholders in resource allocation for marketing and commercial spending, optimizing acquisition costs, and improving 
+  client satisfaction and retention.
+  
+- Build a comprehensive BI solution designed to deliver real-time insights into inbound and outbound interactions between clients and their end users. It integrates 
   data on transactions conducted through these interactions and visualizes the distribution of clients and end users across regions and industries.
 
-- The dashboard empowers stakeholders and our clients to make informed decisions from insights derived from tracking chat or interaction success and failure rates about 
-  successful, pending, and failed transactions, and understand our client based on resource allocation for marketing and commercial spending. It aims to optimize 
-  acquisition costs and identify areas for improvement to enhance client satisfaction and improve customer retention rates.
+- The dashboard was multi-purpose built for in-house cross-functional department stakeholders and developed as a comprehensive BI solution to enhance service rendered to help clients 
+  track interaction success and failure rates (successful, pending, and failed transactions) while gaining deeper insights into their end users, to make informed decisions.
 
 ## Problem Statement
 ###  SQL Problem Statement
